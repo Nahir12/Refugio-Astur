@@ -11,3 +11,8 @@ Este es el repositorio Github para mi Proyecto de Fin de Curso DAW
 ->La BBDD no ha sufrido cambios (Aún)
 -> El Back-End, subido a 08/04/2025 a las 21:15h ha mejorado la consulta por la falla en las fechas. Sin embargo me temo que aunque fechaFin funciona a la perferción, fecha inicio no T-T
 ->Aclaración para el día 08/04/2025 a las 21:15, NO HAY IMÁGENES NI SE HAN ENLAZADO DE NINGUNA FORMA
+////
+->La BBDD ha sufrido cambios que por ahora no he subido. Le añadi num baños y numHabitaciones en casas.
+->El Back-End, subido a 15/04/2025 a las 10:42h incluye el filtro por los dos nuevos campo pero no ha solucionado el problema con las fechas.Ya no se que hacer después de días pegandome con ello. 
+->El Front-End, subido a  15/04/2025 a las 10:42h es bastante completo. Tiene para filtrar por todo, un par de opciones y carrusel, aunque aún no lo he enlazado con nada y me he olvidado de dónde iniciar sesión. 
+-> Aclaración para el día 15/04/2025 a las 10:42h, NO HAY IMÁGENES NI SE HAN ENLAZADO DE NINGUNA FORMA.
