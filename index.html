@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Refugio Astur</title>
+    <script>
+        function setHoyAsFechaMin() {
+            const fechaInicio = document.getElementById('fechaInicio');
+            const today = new Date().toISOString().split('T')[0]; // Obtener la fecha actual en formato YYYY-MM-DD
+
+            // Establecer la fecha mínima y el valor por defecto como el día de hoy
+            fechaInicio.min = today;
+            fechaInicio.value = today;
+        }
+
+        function updateFechaMin() {
+            const fechaInicio = document.getElementById('fechaInicio');
+            const fechaFin = document.getElementById('fechaFin');
+
+            // Asegurarse de que fechaInicio tiene un valor antes de configurar fechaFin
+            if (fechaInicio.value) {
+                fechaFin.min = fechaInicio.value; // Establecer fecha mínima de fechaFin según la seleccionada en fechaInicio
+            }
+        }
+
+        // Ejecutar al cargar la página para inicializar fechaInicio
+        window.onload = setHoyAsFechaMin;
+        let numHabitaciones = 1;
+
+        function masHabitaciones() {
+            numHabitaciones++;
+          document.getElementById("habitacion").innerText = numHabitaciones;
+       }
+
+        function menosHabitaciones() {
+        if (numHabitaciones > 1) {
+           numHabitaciones--;
+           document.getElementById("habitacion").innerText = numHabitaciones;
+           }
+        }
+        let numBaños=1; 
+        function masBaños() {
+            numBaños++;
+          document.getElementById("baño").innerText = numBaños;
+       }
+
+        function menosBaños() {
+        if (numBaños > 1) {
+           numBaños--;
+           document.getElementById("baño").innerText = numBaños;
+           }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+            color: #333;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .content {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .formulario-row {
+            display: flex;
+            align-items: center;
+            gap: 10px; /* Espaciado entre los elementos */
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .cuadro-blanco {
+            border: 1px solid #ccc;
+            padding: 5px;
+            background-color: #fff;
+            width: 40px; /* Ajustado para contener solo la flecha */
+            height: 40px; /* Ajustado para contener solo la flecha */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            padding: 10px;
+            z-index: 1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-arrow {
+            font-size: 10px;
+            font-weight: bold;
+        }
+
+        .dropdown-content label {
+            display: block;
+            margin: 5px 0;
+        }
+
+        form {
+            text-align: center;
+            font-weight: bold;
+            font-size: 15px;
+        }
+
+        input {
+            height: 30px;
+            border: 2px solid #4CAF50;
+            border-radius: 5px;
+            align-self: center;
+        }
+
+        .card { 
+            display: inline-block; 
+            background: white; 
+            border-radius: 10px; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+            margin: 20px; 
+            width: 280px; 
+        }
+
+        .card img { 
+            border-top-left-radius: 10px; 
+            border-top-right-radius: 10px; 
+            width: 280px; 
+        } 
+
+        .card-content { 
+            padding: 15px; 
+            text-align: left; 
+        }
+
+        .btn { 
+            background-color: #4CAF50; 
+            color: white; 
+            padding: 10px 20px; 
+            border: none; 
+            border-radius: 5px; 
+            cursor: pointer; 
+            text-decoration: none; 
+        }
+
+        .carousel-container {
+            width: 100%;
+            max-width: 400px;
+            overflow: hidden;
+            position: relative;
+            text-align: center;
+            margin: 20px auto; /* Centrado y espaciado */
+        }
+
+        .carousel {
+            display: flex;
+            transition: transform 1s ease-in-out;
+        }
+
+        .carousel img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .carousel-text {
+            margin-top: 10px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Bienvenido al Refugio Astur</h1>
+    </header>
+    <div id="formularioInicio">
+        <form>
+            <div class="formulario-row">
+                <label for="lugar">Lugar:</label>
+                <input type="text" placeholder="¿A dónde quieres ir?">
+                <label for="fechaInicio">De</label>
+                <input type="date" id="fechaInicio" name="fechaInicio" onchange="updateFechaMin()">
+                <label for="fechaFin">al</label> 
+                <input type="date" id="fechaFin" name="fechaFin">
+                <label for="habitaciones">Habitaciones:</label>
+                <div>
+                    <button type="button" onclick="menosHabitaciones()">-</button>
+                    <span id="habitacion">1</span>
+                    <button type="button" onclick="masHabitaciones()">+</button>
+                </div>
+                <label for="baños">Baños:</label>
+                <div>
+                    <button type="button" onclick="menosBaños()">-</button>
+                    <span id="baño">1</span>
+                    <button type="button" onclick="masBaños()">+</button>
+                </div>
+                
+                <div class="cuadro-blanco">
+                    <div class="dropdown">
+                        <span class="dropdown-arrow"> otros ↓</span>
+                        <div class="dropdown-content">
+                            <label>
+                                <input type="checkbox"> Opción 1
+                            </label>
+                            <label>
+                                <input type="checkbox"> Opción 2
+                            </label>
+                            <label>
+                                <input type="checkbox"> Opción 3
+                            </label>
+                            <label>
+                                <input type="checkbox"> Opción 4
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <input type="submit" value="Enviar" class="btn">
+            </div>
+        </form>
+    </div>
+
+    <div class="content">
+        <h2>Descubre las mejores casas rurales</h2>
+        <p>Encuentra el lugar perfecto para tu escapada rural. Explora nuestras opciones y disfruta de la naturaleza.</p>
+
+        <div class="card">
+            <img src="casa1.jpg" alt="Casa Rural 1">
+            <div class="card-content">
+                <h3>Casa en el Bosque</h3>
+                <p>Una acogedora casa en medio del bosque para desconectar.</p>
+                <a href="#" class="btn">Reservar ahora</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="casa1.jpg" alt="Casa Rural 2">
+            <div class="card-content">
+                <h3>Casa de Campo</h3>
+                <p>Perfecta para unas vacaciones familiares en la naturaleza.</p>
+                <a href="#" class="btn">Reservar ahora</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="casa1.jpg" alt="Casa Rural 3">
+            <div class="card-content">
+                <h3>Villa en la Montaña</h3>
+                <p>Disfruta de vistas impresionantes desde esta villa.</p>
+                <a href="#" class="btn">Reservar ahora</a>
+            </div>
+        </div>
+
+        <!-- Carrusel añadido debajo de las tarjetas -->
+        <div class="carousel-container">
+            <div class="carousel" id="carousel">
+                <img src="casa1.jpg" alt="Casa 1">
+                <img src="casa1.jpg" alt="Casa 2">
+                <img src="casa1.jpg" alt="Casa 3">
+            </div>
+            <p id="carousel-text" class="carousel-text">Casa 1</p>
+        </div>
+    </div>
+
+    <script>
+        const carousel = document.getElementById('carousel');
+        const carouselText = document.getElementById('carousel-text');
+        const images = ["Casa 1", "Casa 2", "Casa 3"];
+        const totalImages = images.length;
+        let currentIndex = 0;
+
+        function updateCarousel() {
+            currentIndex = (currentIndex + 1) % totalImages;
+
+            // Si llega al final, salta directamente a la primera imagen
+            if (currentIndex === 0) {
+                carousel.style.transition = 'none'; // Elimina la transición
+                carousel.style.transform = `translateX(0%)`;
+                setTimeout(() => {
+                    carousel.style.transition = 'transform 1s ease-in-out'; // Rehabilita la transición para el siguiente movimiento
+                });
+            } else {
+                carousel.style.transform = `translateX(${-currentIndex * 100}%)`;
+            }
+
+            carouselText.textContent = images[currentIndex];
+        }
+
+        // Cambiar de imagen automáticamente cada 3 segundos
+        setInterval(updateCarousel, 3000);
+    </script>
+</body>
+
+</html>
