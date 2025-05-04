@@ -16,3 +16,10 @@ Este es el repositorio Github para mi Proyecto de Fin de Curso DAW
 ->El Back-End, subido a 15/04/2025 a las 10:42h incluye el filtro por los dos nuevos campo pero no ha solucionado el problema con las fechas.Ya no se que hacer después de días pegandome con ello. 
 ->El Front-End, subido a  15/04/2025 a las 10:42h es bastante completo. Tiene para filtrar por todo, un par de opciones y carrusel, aunque aún no lo he enlazado con nada y me he olvidado de dónde iniciar sesión. 
 -> Aclaración para el día 15/04/2025 a las 10:42h, NO HAY IMÁGENES NI SE HAN ENLAZADO DE NINGUNA FORMA.
+////
+->04/05/2025 Hace un tiempo que me olvidé de que debía subir los cambios aquí. Por ahora van: 
+->Cambio de back-end en el que se añade todos los elmininar, create y un update
+-> hay cambios en la bbdd que aún no he subido pero que se notan en el código del back
+->He empezado el front, pero por motivos de pereza y poco conformismo aún no lo he subido
+->Las imágenes aún no están T-T
+->La fecha no funciona
